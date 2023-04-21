@@ -7,4 +7,8 @@ public class Spawner : MonoBehaviour
 {
     private GameObject _spawnPointObject;
     private Transform _spawnPoint;
+
+    [SerializeField] private SpawnerData _data;
+
+    public SpawnerData Data => _data;
 }
