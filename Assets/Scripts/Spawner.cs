@@ -22,4 +22,20 @@ public class Spawner : MonoBehaviour
 
         _spawnPoint = GetComponentInChildren<Transform>();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (_data.OneShot == true && _alreadyEntered == true)
+            return;
+
+        if (_data.SpecificTriggerObject != null
+            && other.gameObject != _data.SpecificTriggerObject)
+            return;
+
+        if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
+            return;
+
+        Debug.Log("Trigger Entered");
+
+    }
 }
