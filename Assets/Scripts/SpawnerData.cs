@@ -26,4 +26,12 @@ public class SpawnerData : ScriptableObject
     private GameObject _specificTriggerObject = null;
     [SerializeField]
     private LayerMask _layersToDetect = -1;
+
+
+    public GameObject ObjectToSpawn => _objectToSpawn;
+    public int AmountToSpawn => _amountToSpawn;
+    public float TimeBetweenEachSpawn => _timeBetweenEachSpawn;
+    public bool OneShot => _oneShot;
+    public GameObject SpecificTriggerObject => _specificTriggerObject;
+    public LayerMask LayersToDetect => _layersToDetect;
 }
