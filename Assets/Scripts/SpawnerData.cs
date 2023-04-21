@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerData : MonoBehaviour
+public class SpawnerData : ScriptableObject
 {
     [Header("Spawner Settings")]
     [SerializeField]
