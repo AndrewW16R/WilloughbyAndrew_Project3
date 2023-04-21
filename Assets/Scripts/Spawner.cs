@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour
 
         Debug.Log("Trigger Entered");
         StartCoroutine(EnableSpawner());
+        _alreadyEntered = true;
 
     }
 
