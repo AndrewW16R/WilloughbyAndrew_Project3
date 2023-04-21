@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private SpawnerData _data;
 
+    [SerializeField] private GameObject _specificTriggerObject;
+
     public SpawnerData Data => _data;
 
     private Collider _collider;
@@ -33,8 +35,8 @@ public class Spawner : MonoBehaviour
         if (_data.OneShot == true && _alreadyEntered == true)
             return;
 
-        if (_data.SpecificTriggerObject != null
-            && other.gameObject != _data.SpecificTriggerObject)
+        if (_data.SpecificTriggerObject == true
+            && other.gameObject != _specificTriggerObject)
             return;
 
         if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
