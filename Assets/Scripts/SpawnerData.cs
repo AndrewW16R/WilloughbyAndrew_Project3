@@ -23,7 +23,8 @@ public class SpawnerData : ScriptableObject
 
     [Header("Trigger Filters")]
     [SerializeField]
-    private GameObject _specificTriggerObject = null;
+    [Tooltip("The specific trigger object is inputed in Spawner script on the corresponding SpawnerTriggerVolume")]
+    private bool _specificTriggerObject = false;
     [SerializeField]
     private LayerMask _layersToDetect = -1;
 
@@ -40,7 +41,7 @@ public class SpawnerData : ScriptableObject
     public int AmountToSpawn => _amountToSpawn;
     public float TimeBetweenEachSpawn => _timeBetweenEachSpawn;
     public bool OneShot => _oneShot;
-    public GameObject SpecificTriggerObject => _specificTriggerObject;
+    public bool SpecificTriggerObject => _specificTriggerObject;
     public LayerMask LayersToDetect => _layersToDetect;
     public bool DisplayGizmos => _displayGizmos;
     public bool ShowOnlyWhileSelected => true;
