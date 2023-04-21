@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Spawner : MonoBehaviour
 {
-    private GameObject _spawnPointObject;
+    [SerializeField] private GameObject _spawnPointObject;
     private Transform _spawnPoint;
 
     [SerializeField] private SpawnerData _data;
@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         _collider = GetComponent<Collider>();
         _collider.isTrigger = true;
 
-        _spawnPoint = GetComponentInChildren<Transform>();
+        _spawnPoint = _spawnPointObject.GetComponent<Transform>();
 
         if (_spawnPoint != null)
         {
