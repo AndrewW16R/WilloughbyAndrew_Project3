@@ -21,6 +21,11 @@ public class Spawner : MonoBehaviour
         _collider.isTrigger = true;
 
         _spawnPoint = GetComponentInChildren<Transform>();
+
+        if (_spawnPoint != null)
+        {
+            Debug.Log("SpawnPoint " + _spawnPoint.transform);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
