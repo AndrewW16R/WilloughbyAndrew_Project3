@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerData : MonoBehaviour
 {
-    [Header("Settings")]
+    [Header("Spawner Settings")]
     [SerializeField]
     private GameObject _objectToSpawn;
 
@@ -13,4 +13,9 @@ public class SpawnerData : MonoBehaviour
 
     [SerializeField]
     private float _timeBetweenEachSpawn;
+
+
+    [Header("Trigger Settings")]
+    [SerializeField]
+    private bool _oneShot;
 }
