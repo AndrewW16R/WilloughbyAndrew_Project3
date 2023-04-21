@@ -27,6 +27,14 @@ public class SpawnerData : ScriptableObject
     [SerializeField]
     private LayerMask _layersToDetect = -1;
 
+    [Header("Gizmo Settings")]
+    [SerializeField]
+    private bool _displayGizmos = false;
+    [SerializeField]
+    private bool _showOnlyWhileSelected = true;
+    [SerializeField]
+    private Color _gizmoColor = Color.green;
+
 
     public GameObject ObjectToSpawn => _objectToSpawn;
     public int AmountToSpawn => _amountToSpawn;
@@ -34,4 +42,7 @@ public class SpawnerData : ScriptableObject
     public bool OneShot => _oneShot;
     public GameObject SpecificTriggerObject => _specificTriggerObject;
     public LayerMask LayersToDetect => _layersToDetect;
+    public bool DisplayGizmos => _displayGizmos;
+    public bool ShowOnlyWhileSelected => true;
+    public Color GizmoColor => _gizmoColor;
 }
