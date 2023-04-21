@@ -11,4 +11,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private SpawnerData _data;
 
     public SpawnerData Data => _data;
+
+    private Collider _collider;
+    private bool _alreadyEntered;
 }
