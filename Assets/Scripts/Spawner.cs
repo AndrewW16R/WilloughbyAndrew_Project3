@@ -36,6 +36,22 @@ public class Spawner : MonoBehaviour
             return;
 
         Debug.Log("Trigger Entered");
+        StartCoroutine(EnableSpawner());
 
+    }
+
+    public IEnumerator EnableSpawner()
+    {
+        int objectsSpawned = 0;
+
+        if(_data.ObjectToSpawn != null)
+        {
+            while(objectsSpawned < _data.AmountToSpawn)
+            {
+                Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+                yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
+                objectsSpawned = objectsSpawned + 1;
+            }
+        }
     }
 }
