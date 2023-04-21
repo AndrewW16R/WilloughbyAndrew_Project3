@@ -55,4 +55,36 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        if (_data.DisplayGizmos == false)
+            return;
+        if (_data.ShowOnlyWhileSelected == true)
+            return;
+
+        if (_collider == null)
+        {
+            _collider = GetComponent<Collider>();
+        }
+
+        Gizmos.color = _data.GizmoColor;
+        Gizmos.DrawCube(transform.position, _collider.bounds.size);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (_data.DisplayGizmos == false)
+            return;
+        if (_data.ShowOnlyWhileSelected == false)
+            return;
+
+        if (_collider == null)
+        {
+            _collider = GetComponent<Collider>();
+        }
+
+        Gizmos.color = _data.GizmoColor;
+        Gizmos.DrawCube(transform.position, _collider.bounds.size);
+    }
 }
