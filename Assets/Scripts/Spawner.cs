@@ -14,4 +14,12 @@ public class Spawner : MonoBehaviour
 
     private Collider _collider;
     private bool _alreadyEntered;
+
+    private void Awake()
+    {
+        _collider = GetComponent<Collider>();
+        _collider.isTrigger = true;
+
+        _spawnPoint = GetComponentInChildren<Transform>();
+    }
 }
