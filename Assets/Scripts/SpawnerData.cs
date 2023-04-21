@@ -18,4 +18,10 @@ public class SpawnerData : MonoBehaviour
     [Header("Trigger Settings")]
     [SerializeField]
     private bool _oneShot;
+
+    [Header("Trigger Filters")]
+    [SerializeField]
+    private GameObject _specificTriggerObject = null;
+    [SerializeField]
+    private LayerMask _layersToDetect = -1;
 }
