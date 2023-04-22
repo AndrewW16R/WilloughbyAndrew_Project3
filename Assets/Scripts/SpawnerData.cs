@@ -8,18 +8,18 @@ public class SpawnerData : ScriptableObject
 {
     [Header("Spawner Settings")]
     [SerializeField]
-    private GameObject _objectToSpawn;
+    private GameObject _objectToSpawn = null;
 
     [SerializeField]
-    private int _amountToSpawn;
+    private int _amountToSpawn =   0;
 
     [SerializeField]
-    private float _timeBetweenEachSpawn;
+    private float _timeBetweenEachSpawn = 0;
 
 
     [Header("Trigger Settings")]
     [SerializeField]
-    private bool _oneShot;
+    private bool _oneShot = false;
 
     [Header("Trigger Filters")]
     [SerializeField]
@@ -44,6 +44,6 @@ public class SpawnerData : ScriptableObject
     public bool SpecificTriggerObject => _specificTriggerObject;
     public LayerMask LayersToDetect => _layersToDetect;
     public bool DisplayGizmos => _displayGizmos;
-    public bool ShowOnlyWhileSelected => true;
+    public bool ShowOnlyWhileSelected => _showOnlyWhileSelected;
     public Color GizmoColor => _gizmoColor;
 }
