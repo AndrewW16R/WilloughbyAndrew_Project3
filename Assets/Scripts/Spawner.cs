@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
 
     private Collider _collider;
     private bool _alreadyEntered;
+    private bool _forceShutoff;
 
     private void Awake()
     {
@@ -63,6 +64,19 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator EnableEndlessSpawner()
+    {
+        if(_data.ObjectToSpawn != null)
+        {
+            while(_forceShutoff == false)
+            {
+                Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+                yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
+            }
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
