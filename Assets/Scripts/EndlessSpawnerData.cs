@@ -27,4 +27,12 @@ public class EndlessSpawnerData : ScriptableObject
     private bool _showOnlyWhileSelected = true;
     [SerializeField]
     private Color _gizmoColor = Color.green;
+
+    public GameObject ObjectToSpawn => _objectToSpawn;
+    public bool SpawnOnAwake => _spawnOnAwake;
+    public bool SpecificTriggerObject => _specificTriggerObject;
+    public LayerMask LayersToDetect => _layersToDetect;
+    public bool DisplayGizmos => _displayGizmos;
+    public bool ShowOnlyWhileSelected => _showOnlyWhileSelected;
+    public Color GizmoColor => _gizmoColor;
 }
