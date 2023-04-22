@@ -14,6 +14,7 @@ public class SpawnerData : ScriptableObject
     private int _amountToSpawn =   0;
 
     [SerializeField]
+    [Tooltip("If enabled, the oneShot trigger setting will be enabled by default")]
     private bool _endlessSpawning = false;
 
     [SerializeField]
@@ -55,4 +56,12 @@ public class SpawnerData : ScriptableObject
     public bool DisplayGizmos => _displayGizmos;
     public bool ShowOnlyWhileSelected => _showOnlyWhileSelected;
     public Color GizmoColor => _gizmoColor;
+
+    public void Awake()
+    {
+        if (_endlessSpawning == true)
+        {
+            _oneShot = true;
+        }
+    }
 }
