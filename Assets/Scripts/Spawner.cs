@@ -57,10 +57,18 @@ public class Spawner : MonoBehaviour
         if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
             return;
 
-
-        Debug.Log("Trigger Entered");
-        StartCoroutine(EnableSpawner());
-        _alreadyEntered = true;
+        if (_data.EndlessSpawning == true)
+        {
+            Debug.Log("Trigger Entered");
+            StartCoroutine(EnableEndlessSpawner());
+        }
+        else
+        {
+            Debug.Log("Trigger Entered");
+            StartCoroutine(EnableSpawner());
+            _alreadyEntered = true;
+        }
+        
 
     }
 
