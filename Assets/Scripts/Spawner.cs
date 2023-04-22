@@ -25,12 +25,17 @@ public class Spawner : MonoBehaviour
 
         _spawnPoint = _spawnPointObject.GetComponent<Transform>();
 
-        if(_data.SpawnOnAwake == true)
+    }
+
+    private void Start()
+    {
+        if (_data.SpawnOnAwake == true)
         {
             _alreadyEntered = true;
 
-            if(_data.EndlessSpawning == true)
+            if (_data.EndlessSpawning == true)
             {
+                Debug.Log("Endless Spawner");
                 StartCoroutine(EnableEndlessSpawner());
             }
             else
@@ -38,7 +43,6 @@ public class Spawner : MonoBehaviour
                 StartCoroutine(EnableSpawner());
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +56,7 @@ public class Spawner : MonoBehaviour
 
         if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
             return;
+
 
         Debug.Log("Trigger Entered");
         StartCoroutine(EnableSpawner());
