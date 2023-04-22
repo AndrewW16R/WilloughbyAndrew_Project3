@@ -124,6 +124,7 @@ public class Spawner : MonoBehaviour
 
         Gizmos.color = _data.GizmoColor;
         Gizmos.DrawCube(transform.position, _collider.bounds.size);
+        DrawSpawnerConnection();
     }
 
     private void OnDrawGizmosSelected()
@@ -140,5 +141,15 @@ public class Spawner : MonoBehaviour
 
         Gizmos.color = _data.GizmoColor;
         Gizmos.DrawCube(transform.position, _collider.bounds.size);
+        DrawSpawnerConnection();
+    }
+
+    private void DrawSpawnerConnection()
+    {
+        Gizmos.color = Color.cyan;
+        Vector3 TriggerPosition = gameObject.transform.position;
+        Vector3 SpawnerPosition = _spawnPointObject.transform.position;
+        Gizmos.DrawLine(TriggerPosition, SpawnerPosition);
+
     }
 }
