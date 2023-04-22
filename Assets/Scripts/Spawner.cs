@@ -37,7 +37,6 @@ public class Spawner : MonoBehaviour
 
             if (_data.EndlessSpawning == true)
             {
-                Debug.Log("Endless Spawner");
                 StartCoroutine(EnableEndlessSpawner());
             }
             else
