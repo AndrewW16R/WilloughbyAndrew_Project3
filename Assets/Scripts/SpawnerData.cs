@@ -46,7 +46,9 @@ public class SpawnerData : ScriptableObject
 
     public GameObject ObjectToSpawn => _objectToSpawn;
     public int AmountToSpawn => _amountToSpawn;
+    public bool EndlessSpawning => _endlessSpawning;
     public float TimeBetweenEachSpawn => _timeBetweenEachSpawn;
+    public bool SpawnOnAwake => _spawnOnAwake;
     public bool OneShot => _oneShot;
     public bool SpecificTriggerObject => _specificTriggerObject;
     public LayerMask LayersToDetect => _layersToDetect;
