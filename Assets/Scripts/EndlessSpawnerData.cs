@@ -12,4 +12,11 @@ public class EndlessSpawnerData : ScriptableObject
     [SerializeField]
     [Tooltip("If enabled, the trigger will not need to be entered to start the spawning process")]
     private bool _spawnOnAwake;
+
+    [Header("Trigger Filters")]
+    [SerializeField]
+    [Tooltip("The specific trigger object is inputed in Spawner script on the corresponding SpawnerTriggerVolume")]
+    private bool _specificTriggerObject = false;
+    [SerializeField]
+    private LayerMask _layersToDetect = -1;
 }
