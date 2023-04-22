@@ -29,6 +29,8 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        _data.SetOneShotTrue();
+
         if (_data.SpawnOnAwake == true)
         {
             _alreadyEntered = true;
@@ -43,6 +45,8 @@ public class Spawner : MonoBehaviour
                 StartCoroutine(EnableSpawner());
             }
         }
+
+        Debug.Log(_data.OneShot);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,6 +63,7 @@ public class Spawner : MonoBehaviour
 
         if (_data.EndlessSpawning == true)
         {
+            _alreadyEntered = true;
             Debug.Log("Trigger Entered");
             StartCoroutine(EnableEndlessSpawner());
         }

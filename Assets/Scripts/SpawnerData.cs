@@ -57,7 +57,7 @@ public class SpawnerData : ScriptableObject
     public bool ShowOnlyWhileSelected => _showOnlyWhileSelected;
     public Color GizmoColor => _gizmoColor;
 
-    public void Awake()
+    public void SetOneShotTrue()
     {
         if (_endlessSpawning == true)
         {
