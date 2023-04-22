@@ -19,4 +19,12 @@ public class EndlessSpawnerData : ScriptableObject
     private bool _specificTriggerObject = false;
     [SerializeField]
     private LayerMask _layersToDetect = -1;
+
+    [Header("Gizmo Settings")]
+    [SerializeField]
+    private bool _displayGizmos = false;
+    [SerializeField]
+    private bool _showOnlyWhileSelected = true;
+    [SerializeField]
+    private Color _gizmoColor = Color.green;
 }
