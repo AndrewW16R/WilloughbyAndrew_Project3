@@ -14,7 +14,14 @@ public class SpawnerData : ScriptableObject
     private int _amountToSpawn =   0;
 
     [SerializeField]
+    private bool _endlessSpawning = false;
+
+    [SerializeField]
     private float _timeBetweenEachSpawn = 0;
+
+    [SerializeField]
+    [Tooltip("If enabled, the trigger will NOT need to be entered to start the spawning process")]
+    private bool _spawnOnAwake = false;
 
 
     [Header("Trigger Settings")]
