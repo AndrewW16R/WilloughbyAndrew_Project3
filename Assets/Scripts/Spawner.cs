@@ -24,6 +24,11 @@ public class Spawner : MonoBehaviour
 
         _spawnPoint = _spawnPointObject.GetComponent<Transform>();
 
+        if(_data.SpawnOnAwake == true)
+        {
+
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
