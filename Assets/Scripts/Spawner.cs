@@ -77,6 +77,11 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    public void ForceShutoffSpawner()
+    {
+        _forceShutoff = true;
+    }
+
 
     private void OnDrawGizmos()
     {
