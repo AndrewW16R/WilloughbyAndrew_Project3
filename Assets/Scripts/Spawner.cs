@@ -27,7 +27,16 @@ public class Spawner : MonoBehaviour
 
         if(_data.SpawnOnAwake == true)
         {
+            _alreadyEntered = true;
 
+            if(_data.EndlessSpawning == true)
+            {
+                StartCoroutine(EnableEndlessSpawner());
+            }
+            else
+            {
+                StartCoroutine(EnableSpawner());
+            }
         }
 
     }
