@@ -21,6 +21,9 @@ public class SpawnerData : ScriptableObject
     private float _timeBetweenEachSpawn = 0;
 
     [SerializeField]
+    private float _spawnDelay = 0;
+
+    [SerializeField]
     [Tooltip("If enabled, the trigger will NOT need to be entered to start the spawning process")]
     private bool _spawnOnAwake = false;
 
@@ -49,6 +52,7 @@ public class SpawnerData : ScriptableObject
     public int AmountToSpawn => _amountToSpawn;
     public bool EndlessSpawning => _endlessSpawning;
     public float TimeBetweenEachSpawn => _timeBetweenEachSpawn;
+    public float SpawnDelay => _spawnDelay;
     public bool SpawnOnAwake => _spawnOnAwake;
     public bool OneShot => _oneShot;
     public bool SpecificTriggerObject => _specificTriggerObject;
