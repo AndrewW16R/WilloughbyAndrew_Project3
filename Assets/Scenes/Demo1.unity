@@ -136,9 +136,10 @@ GameObject:
   - component: {fileID: 147871108}
   - component: {fileID: 147871107}
   - component: {fileID: 147871111}
-  m_Layer: 0
+  - component: {fileID: 147871112}
+  m_Layer: 6
   m_Name: PlayerCapsule
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,9 +152,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147871106}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -234,6 +235,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772eba7126e0c44bbab8962da57ce846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &147871112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147871106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &806522468
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,8 +536,10 @@ GameObject:
   - component: {fileID: 1603370717}
   - component: {fileID: 1603370716}
   - component: {fileID: 1603370715}
+  - component: {fileID: 1603370721}
   - component: {fileID: 1603370719}
   - component: {fileID: 1603370720}
+  - component: {fileID: 1603370722}
   m_Layer: 0
   m_Name: EnemyCapsule
   m_TagString: Untagged
@@ -541,7 +557,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -646,6 +662,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerObject: {fileID: 147871106}
+--- !u!114 &1603370721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603370714}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095d4f0b244314c778d015f016d37f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerObject: {fileID: 147871106}
+--- !u!65 &1603370722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603370714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1758031593
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,13 +698,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1758031594}
   - component: {fileID: 1758031595}
+  - component: {fileID: 1758031596}
   m_Layer: 0
   m_Name: TriggerVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1758031594
 Transform:
   m_ObjectHideFlags: 0
@@ -692,3 +735,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1758031596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758031593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095d4f0b244314c778d015f016d37f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerObject: {fileID: 147871106}
