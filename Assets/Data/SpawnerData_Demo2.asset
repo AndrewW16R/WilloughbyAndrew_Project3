@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320e1d9c69bec49b785e12cca362e63d, type: 3}
+  m_Name: SpawnerData_Demo2
+  m_EditorClassIdentifier: 
+  _objectToSpawn: {fileID: 4485671354780551635, guid: 599230c5cfb7445b1adead12c91e9603, type: 3}
+  _amountToSpawn: 0
+  _endlessSpawning: 1
+  _timeBetweenEachSpawn: 4
+  _spawnerStartDelay: 0
+  _spawnOnAwake: 1
+  _oneShot: 1
+  _specificTriggerObject: 0
+  _layersToDetect:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _displayGizmos: 1
+  _showOnlyWhileSelected: 1
+  _gizmoColor: {r: 0, g: 1, b: 0, a: 1}
