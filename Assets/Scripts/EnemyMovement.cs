@@ -5,14 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] GameObject _playerObject;
+    PlayerCapsule _playerObject;
     private NavMeshAgent _agent;
     Transform _targetPosition;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
-        _targetPosition = _playerObject.transform;
+        _playerObject = FindObjectOfType<PlayerCapsule>();
+
+        //_targetPosition = _playerObject.transform;
         _agent = GetComponent<NavMeshAgent>();
     }
 
@@ -26,6 +29,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_playerObject != null)
         {
+            _targetPosition = _playerObject.transform;
+            Debug.Log(_targetPosition.position);
             _agent.destination = _targetPosition.position;
         }
     }
