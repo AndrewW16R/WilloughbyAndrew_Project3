@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class HazardVolume : MonoBehaviour
 {
-    [SerializeField] GameObject _playerObject;
-    private GameObject _collisionObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +19,10 @@ public class HazardVolume : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == _playerObject)
+    
+        if(other.gameObject.layer == 6)
         {
-            Debug.Log("Collision");
-            Destroy(_playerObject);
+            Destroy(other.gameObject);
         }
        
     }
