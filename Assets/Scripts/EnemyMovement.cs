@@ -24,7 +24,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveTowardsPlayer()
     {
-        _agent.destination = _targetPosition.position;
+        if (_playerObject != null)
+        {
+            _agent.destination = _targetPosition.position;
+        }
     }
 
 }
