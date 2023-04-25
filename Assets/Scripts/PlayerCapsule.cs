@@ -18,22 +18,22 @@ public class PlayerCapsule : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(-Vector3.forward * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-Vector3.right * Time.deltaTime);
         }
