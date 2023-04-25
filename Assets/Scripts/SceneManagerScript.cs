@@ -9,12 +9,26 @@ public class SceneManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        LoadCheck();
     }
 
     public void LoadCheck()
     {
-        SceneManager.LoadScene("");
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("Demo1");
+        }
+
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("Demo2");
+        }
+
     }
 
 }
