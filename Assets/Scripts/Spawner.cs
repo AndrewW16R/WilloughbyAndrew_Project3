@@ -82,7 +82,8 @@ public class Spawner : MonoBehaviour
 
         if(_data.ObjectToSpawn != null)
         {
-            while(objectsSpawned < _data.AmountToSpawn)
+            yield return new WaitForSeconds(_data.SpawnDelay);
+            while (objectsSpawned < _data.AmountToSpawn)
             {
                 Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
                 yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);

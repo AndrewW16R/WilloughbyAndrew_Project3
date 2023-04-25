@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToSpawn: {fileID: 4485671354780551635, guid: 599230c5cfb7445b1adead12c91e9603, type: 3}
   _amountToSpawn: 3
-  _endlessSpawning: 1
+  _endlessSpawning: 0
   _timeBetweenEachSpawn: 2
+  _spawnDelay: 3
   _spawnOnAwake: 0
   _oneShot: 1
   _specificTriggerObject: 0
