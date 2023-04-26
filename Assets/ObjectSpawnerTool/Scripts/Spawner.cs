@@ -50,7 +50,6 @@ public class Spawner : MonoBehaviour
                 }
             }
 
-            Debug.Log(_data.OneShot);
         }
     }
 
@@ -71,12 +70,12 @@ public class Spawner : MonoBehaviour
             if (_data.EndlessSpawning == true)
             {
                 _alreadyEntered = true;
-                Debug.Log("Trigger Entered");
+                Debug.Log("Spawner Trigger Entered");
                 StartCoroutine(EnableEndlessSpawner());
             }
             else
             {
-                Debug.Log("Trigger Entered");
+                Debug.Log("Spawner Trigger Entered");
                 StartCoroutine(EnableSpawner());
                 _alreadyEntered = true;
             }
