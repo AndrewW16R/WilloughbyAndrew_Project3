@@ -29,48 +29,54 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        _data.SetOneShotTrue();
-
-        if (_data.SpawnOnAwake == true)
+        if (_data != null)
         {
-            _alreadyEntered = true;
+            _data.SetOneShotTrue();
 
-            if (_data.EndlessSpawning == true)
+            if (_data.SpawnOnAwake == true)
             {
-                StartCoroutine(EnableEndlessSpawner());
+                _alreadyEntered = true;
+
+                if (_data.EndlessSpawning == true)
+                {
+                    StartCoroutine(EnableEndlessSpawner());
+                }
+                else
+                {
+                    StartCoroutine(EnableSpawner());
+                }
             }
-            else
-            {
-                StartCoroutine(EnableSpawner());
-            }
+
+            Debug.Log(_data.OneShot);
         }
-
-        Debug.Log(_data.OneShot);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_data.OneShot == true && _alreadyEntered == true)
-            return;
-
-        if (_data.SpecificTriggerObject == true
-            && other.gameObject != _specificTriggerObject)
-            return;
-
-        if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
-            return;
-
-        if (_data.EndlessSpawning == true)
+        if (_data != null)
         {
-            _alreadyEntered = true;
-            Debug.Log("Trigger Entered");
-            StartCoroutine(EnableEndlessSpawner());
-        }
-        else
-        {
-            Debug.Log("Trigger Entered");
-            StartCoroutine(EnableSpawner());
-            _alreadyEntered = true;
+            if (_data.OneShot == true && _alreadyEntered == true)
+                return;
+
+            if (_data.SpecificTriggerObject == true
+                && other.gameObject != _specificTriggerObject)
+                return;
+
+            if (_data.LayersToDetect != (_data.LayersToDetect | (1 << other.gameObject.layer)))
+                return;
+
+            if (_data.EndlessSpawning == true)
+            {
+                _alreadyEntered = true;
+                Debug.Log("Trigger Entered");
+                StartCoroutine(EnableEndlessSpawner());
+            }
+            else
+            {
+                Debug.Log("Trigger Entered");
+                StartCoroutine(EnableSpawner());
+                _alreadyEntered = true;
+            }
         }
         
 
@@ -78,28 +84,34 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator EnableSpawner()
     {
-        int objectsSpawned = 0;
-
-        if(_data.ObjectToSpawn != null)
+        if (_data != null)
         {
-            yield return new WaitForSeconds(_data.SpawnerStartDelay);
-            while (objectsSpawned < _data.AmountToSpawn)
+            int objectsSpawned = 0;
+
+            if (_data.ObjectToSpawn != null)
             {
-                Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
-                yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
-                objectsSpawned = objectsSpawned + 1;
+                yield return new WaitForSeconds(_data.SpawnerStartDelay);
+                while (objectsSpawned < _data.AmountToSpawn)
+                {
+                    Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+                    yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
+                    objectsSpawned = objectsSpawned + 1;
+                }
             }
         }
     }
 
     public IEnumerator EnableEndlessSpawner()
     {
-        if(_data.ObjectToSpawn != null)
+        if (_data != null)
         {
-            while(_forceShutoff == false)
+            if (_data.ObjectToSpawn != null)
             {
-                Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
-                yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
+                while (_forceShutoff == false)
+                {
+                    Instantiate(_data.ObjectToSpawn, _spawnPoint.position, _spawnPoint.rotation);
+                    yield return new WaitForSeconds(_data.TimeBetweenEachSpawn);
+                }
             }
         }
     }
@@ -112,44 +124,53 @@ public class Spawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (_data.DisplayGizmos == false)
-            return;
-        if (_data.ShowOnlyWhileSelected == true)
-            return;
-
-        if (_collider == null)
+        if (_data != null)
         {
-            _collider = GetComponent<Collider>();
-        }
+            if (_data.DisplayGizmos == false)
+                return;
+            if (_data.ShowOnlyWhileSelected == true)
+                return;
 
-        Gizmos.color = _data.GizmoColor;
-        Gizmos.DrawCube(transform.position, _collider.bounds.size);
-        DrawSpawnerConnection();
+            if (_collider == null)
+            {
+                _collider = GetComponent<Collider>();
+            }
+
+            Gizmos.color = _data.GizmoColor;
+            Gizmos.DrawCube(transform.position, _collider.bounds.size);
+            DrawSpawnerConnection();
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (_data.DisplayGizmos == false)
-            return;
-        if (_data.ShowOnlyWhileSelected == false)
-            return;
-
-        if (_collider == null)
+        if (_data != null)
         {
-            _collider = GetComponent<Collider>();
-        }
+            if (_data.DisplayGizmos == false)
+                return;
+            if (_data.ShowOnlyWhileSelected == false)
+                return;
 
-        Gizmos.color = _data.GizmoColor;
-        Gizmos.DrawCube(transform.position, _collider.bounds.size);
-        DrawSpawnerConnection();
+            if (_collider == null)
+            {
+                _collider = GetComponent<Collider>();
+            }
+
+            Gizmos.color = _data.GizmoColor;
+            Gizmos.DrawCube(transform.position, _collider.bounds.size);
+            DrawSpawnerConnection();
+        }
     }
 
     private void DrawSpawnerConnection()
     {
-        Gizmos.color = Color.cyan;
-        Vector3 TriggerPosition = gameObject.transform.position;
-        Vector3 SpawnerPosition = _spawnPointObject.transform.position;
-        Gizmos.DrawLine(TriggerPosition, SpawnerPosition);
+        if (_data != null)
+        {
+            Gizmos.color = Color.cyan;
+            Vector3 TriggerPosition = gameObject.transform.position;
+            Vector3 SpawnerPosition = _spawnPointObject.transform.position;
+            Gizmos.DrawLine(TriggerPosition, SpawnerPosition);
+        }
 
     }
 }
