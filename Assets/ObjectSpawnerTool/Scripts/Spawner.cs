@@ -23,7 +23,10 @@ public class Spawner : MonoBehaviour
         _collider = GetComponent<Collider>();
         _collider.isTrigger = true;
 
-        _spawnPoint = _spawnPointObject.GetComponent<Transform>();
+        if (_spawnPointObject != null)
+        {
+            _spawnPoint = _spawnPointObject.GetComponent<Transform>();
+        }
 
     }
 
@@ -164,7 +167,7 @@ public class Spawner : MonoBehaviour
 
     private void DrawSpawnerConnection()
     {
-        if (_data != null)
+        if (_data != null && _spawnPointObject != null)
         {
             Gizmos.color = Color.cyan;
             Vector3 TriggerPosition = gameObject.transform.position;
