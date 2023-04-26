@@ -90,7 +90,7 @@ public class Spawner : MonoBehaviour
         {
             int objectsSpawned = 0;
 
-            if (_data.ObjectToSpawn != null)
+            if (_data.ObjectToSpawn != null && _data.EndlessSpawning == false)
             {
                 yield return new WaitForSeconds(_data.SpawnerStartDelay);
                 while (objectsSpawned < _data.AmountToSpawn)
@@ -107,7 +107,7 @@ public class Spawner : MonoBehaviour
     {
         if (_data != null)
         {
-            if (_data.ObjectToSpawn != null)
+            if (_data.ObjectToSpawn != null && _data.EndlessSpawning == true)
             {
                 while (_forceShutoff == false)
                 {
